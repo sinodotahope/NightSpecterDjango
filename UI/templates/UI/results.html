@@ -1,0 +1,10 @@
+<h1>{{ group.group_name }}</h1>
+
+<ul>
+    {% for tool in group.tool_set.all %}
+    <li>
+        工具--{{tool.num_tools}}件{{tool.num_tools|pluralize}}
+    </li>
+    {% endfor %}
+</ul>
+<a href = "{% url 'UI:detail' group.id %}">再次修改？</a>

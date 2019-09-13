@@ -11,17 +11,17 @@ class Group(models.Model):
         return self.group_name
 
 
-class Tools(models.Model):
+class Tool(models.Model):
     group = models.ForeignKey(Group,on_delete=models.CASCADE)
-    num_tools = models.IntegerField()
-    num_materials = models.IntegerField()
+    num_tools = models.IntegerField(verbose_name='工具数量')
+    num_materials = models.IntegerField(verbose_name='材料数量')
     def __str__(self):
-        return "工具"+str(self.num_tools),"材料"+str(self.num_materials)
+        return "工具"+str(self.num_tools)+"；材料"+str(self.num_materials)
 
-class Doors(models.Model):
+class Door(models.Model):
     group = models.ForeignKey(Group,on_delete=models.CASCADE)
-    up_door = models.CharField(max_length=200)
-    down_door = models.CharField(max_length=200)
+    up_door = models.CharField(max_length=200,verbose_name='上道站台')
+    down_door = models.CharField(max_length=200,verbose_name='下道站台')
     def __str__(self):
-        return "上道："+str(self.up_door),"下道："+str(self.down_door)
+        return "上道："+str(self.up_door)+"；下道："+str(self.down_door)
 

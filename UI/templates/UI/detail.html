@@ -1,0 +1,10 @@
+<h1>{{group.group_name}}</h1>
+{% if error_message %}<p><strong>{{error_message}}</strong></p>{% endif %}
+<form action = "{% url 'UI:revise' group.id %}" method='post' >
+    {% csrf_token %}
+    {% for tool in group.tool_set.all %}
+        <input type="radio" name="tool" id = "tool{{forloop.counter}}" value = "{{tool.id}}">
+    <label for="tool{{forloop.counter}}">{{tool.num_tools}}</label><br>
+    {% endfor %}
+    <input type="submit" value="修改">
+</form>

@@ -2,7 +2,7 @@
     <ul>
     {% for group in today_groups %}
         <li>
-            <a href="/polls/{{group.id}}/">{{group.group_name}}</a>
+            <a href="{% url 'UI:detail' group.id %}">{{group.group_name}}</a>
         </li>
     {% endfor %}
     </ul>
